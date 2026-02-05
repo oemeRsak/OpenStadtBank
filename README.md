@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Copyright (C) 2026 Ömer Rasim Sak <contact@oemersak.me>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 # OpenStadtBank
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
@@ -11,8 +17,3 @@ Copyright (C) 2026 Ömer Rasim Sak
 
 This project is licensed under the GNU Affero General Public License v3.0
 or later (AGPL-3.0-or-later).
-
-<!--
-SPDX-FileCopyrightText: Copyright (C) 2026 Ömer Rasim Sak <contact@oemersak.me>
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
