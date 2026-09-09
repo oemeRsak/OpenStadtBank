@@ -1,0 +1,20 @@
+[project]
+name = "openstadtbank"
+version = "0.1.0"
+description = "An open-source banking app for a children’s holiday program to manage accounts, balances, credit and more. Rewritten with a focus on good documentation and clean architecture."
+readme = "README.md"
+authors = [
+    { name = "Ömer R. Sak", email = "orsmes6145@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.2.17",
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=8.0.0",
+]
+prod = [
+    "gunicorn>=26.2.0",
+]
