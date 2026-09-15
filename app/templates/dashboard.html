@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block sidebar %}
+    {% include "partials/sidebar.html" %}
+{% endblock %}
+
+{% block header %}
+    {% include "partials/header.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="p-8 flex flex-col gap-10">
+
+    <!-- Stats -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="p-6 bg-blue-50 rounded-lg">
+            <p>Total Young Citizens</p>
+            <h3 class="text-3xl font-bold">
+                {{ stats.young_citizens|intcomma }}
+            </h3>
+        </div>
+
+        <div class="p-6 bg-emerald-50 rounded-lg">
+            <p>Total Balance</p>
+            <h3 class="text-3xl font-bold">
+                {{ stats.total_balance|intcomma }} GC
+            </h3>
+        </div>
+
+        <div class="p-6 bg-amber-50 rounded-lg">
+            <p>Active Projects</p>
+            <h3 class="text-3xl font-bold">
+                {{ stats.active_projects }}
+            </h3>
+        </div>
+
+        <div class="p-6 bg-indigo-50 rounded-lg">
+            <p>Today's Transactions</p>
+            <h3 class="text-3xl font-bold">
+                {{ stats.transactions_today }}
+            </h3>
+        </div>
+
+    </section>
+
+    <!-- Activity -->
+    <section>
+        <h4 class="text-xl font-bold mb-4">Recent Activity</h4>
+
+        <div class="bg-white rounded-lg p-2">
+
+            {% for activity in activities %}
+            <div class="flex justify-between p-4 border-b">
+
+                <div>
+                    <p class="font-bold">{{ activity.title }}</p>
+                    <p class="text-xs text-gray-500">{{ activity.subtitle }}</p>
+                </div>
+
+                <div class="text-right">
+                    <p class="font-bold
+                        {% if activity.amount > 0 %}
+                            text-green-600
+                        {% else %}
+                            text-red-600
+                        {% endif %}">
+                        {{ activity.amount }} GC
+                    </p>
+
+                    <span class="text-xs px-2 py-1 rounded
+                        {% if activity.status == 'Success' %}
+                            bg-green-100 text-green-600
+                        {% elif activity.status == 'Completed' %}
+                            bg-gray-200 text-gray-600
+                        {% else %}
+                            bg-blue-100 text-blue-600
+                        {% endif %}">
+                        {{ activity.status }}
+                    </span>
+                </div>
+
+            </div>
+            {% empty %}
+                <p class="p-4 text-gray-500">No activity yet.</p>
+            {% endfor %}
+
+        </div>
+    </section>
+
+</div>
+{% endblock %}

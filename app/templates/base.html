@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Game City Bank{% endblock %}</title>
+
+    <!-- Fonts + Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-surface text-on-surface flex min-h-screen">
+
+    {% block sidebar %}{% endblock %}
+
+    <main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+        {% block header %}{% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}
+        <footer class="mt-auto p-6 text-center text-[11px] font-bold text-outline-variant uppercase tracking-[0.2em]">
+            © {% now "Y" %} Game City Banking System
+        </footer>
+        {% endblock %}
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Settings - Game City Bank</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#fff7f3",
+                        "surface-dim": "#d1dce3",
+                        "on-secondary-fixed": "#004a15",
+                        "tertiary": "#845500",
+                        "inverse-primary": "#68abff",
+                        "background": "#f6fafe",
+                        "on-secondary-fixed-variant": "#0c6a24",
+                        "surface-container-highest": "#d9e4ec",
+                        "on-error-container": "#6e0a12",
+                        "on-primary-fixed": "#000c1e",
+                        "tertiary-fixed": "#feb64c",
+                        "outline-variant": "#a9b3bb",
+                        "on-surface": "#2a343a",
+                        "surface-bright": "#f6fafe",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f6fafe",
+                        "tertiary-dim": "#744a00",
+                        "secondary-dim": "#00611e",
+                        "on-secondary-container": "#005f1d",
+                        "inverse-surface": "#0a0f12",
+                        "tertiary-container": "#feb64c",
+                        "inverse-on-surface": "#999da1",
+                        "on-tertiary-fixed": "#3d2500",
+                        "surface-container-high": "#e1e9f0",
+                        "surface-container": "#e7eff5",
+                        "primary-fixed": "#68abff",
+                        "on-primary-container": "#002b52",
+                        "on-primary-fixed-variant": "#003461",
+                        "primary-container": "#68abff",
+                        "on-secondary": "#eaffe4",
+                        "on-tertiary-container": "#583700",
+                        "outline": "#727c83",
+                        "surface-tint": "#0060ad",
+                        "secondary-container": "#9ff79f",
+                        "secondary-fixed": "#9ff79f",
+                        "on-primary": "#f8f8ff",
+                        "tertiary-fixed-dim": "#eea840",
+                        "on-tertiary-fixed-variant": "#644000",
+                        "on-background": "#2a343a",
+                        "surface-variant": "#d9e4ec",
+                        "error": "#a83836",
+                        "primary": "#0060ad",
+                        "primary-dim": "#005498",
+                        "on-error": "#fff7f6",
+                        "secondary": "#136e27",
+                        "error-container": "#fa746f",
+                        "on-surface-variant": "#566167",
+                        "error-dim": "#67040d",
+                        "surface-container-low": "#eef4fa",
+                        "secondary-fixed-dim": "#91e892",
+                        "primary-fixed-dim": "#599ef1"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-slate-900 flex flex-col p-4 gap-2 z-50">
+    <div class="flex items-center gap-3 px-4 py-6 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+            <span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+        </div>
+        <div>
+            <h1 class="text-lg font-bold text-blue-800 dark:text-blue-300 leading-tight">Game City</h1>
+            <p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">City Treasury</p>
+        </div>
+    </div>
+    <nav class="flex-1 flex flex-col gap-1">
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="dashboard">dashboard</span>
+            <span class="text-sm font-medium">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="group">group</span>
+            <span class="text-sm font-medium">Customers</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="payments">payments</span>
+            <span class="text-sm font-medium">Payments</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600"
+                  data-icon="credit_score">credit_score</span>
+            <span class="text-sm font-medium">Credit Management</span>
+        </a>
+        <!-- Active State: Settings -->
+        <a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-full shadow-sm font-semibold translate-x-1 duration-200"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span class="text-sm">Settings</span>
+        </a>
+    </nav>
+    <div class="mt-auto p-4 bg-primary-container/20 rounded-lg">
+        <button class="w-full py-3 bg-primary text-on-primary rounded-full font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+            New Project
+        </button>
+    </div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col">
+    <!-- TopAppBar (Shared Component) -->
+    <header class="sticky top-0 w-full flex justify-between items-center px-8 py-4 bg-surface dark:bg-slate-900 z-40">
+        <div class="flex items-center gap-6">
+            <h2 class="text-xl font-black text-blue-700 dark:text-blue-400 tracking-tight font-headline">Admin
+                Panel</h2>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm"
+                      data-icon="search">search</span>
+                <input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20"
+                       placeholder="Search settings..." type="text"/>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="p-2 text-slate-600 hover:bg-blue-50 rounded-full transition-colors relative">
+                <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+            </button>
+            <div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+            <div class="flex items-center gap-3 bg-surface-container-low px-3 py-1.5 rounded-full">
+                <img alt="User profile avatar" class="w-7 h-7 rounded-full bg-white"
+                     data-alt="Corporate headshot of a male bank administrator"
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbQReEbo3K4rBN11heO-BxDhdquq-ytR4_GCHpqPpRqSH4ug8VfVfELwtMaK_iqJqFTFgdT5BBoA2qPgscKtuUha3S9EzQALq1k-ZnenuSxOj1D0VZ6JPnOW_jFyLATQeDgHBjKwjbg5SX87QWyFZKiHyzR9SHwZLmh6E91iieOpFwNOD7cBisZEzbFf_EXZ43MQ9UbXukK2cad8UlWaETUeWeWREctOHM4E38kfLKBTTdGInnXYjM1ShUMqPKRtRc_U0Kls82MzE5"/>
+                <div class="flex flex-col">
+                    <span class="text-xs font-bold leading-none">Admin User</span>
+                    <span class="text-[10px] text-on-surface-variant">Super Admin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Page Content -->
+    <div class="px-8 py-8 flex-1 max-w-7xl w-full mx-auto">
+        <!-- Tabbed Navigation -->
+        <div class="flex gap-8 border-b border-outline-variant/10 mb-8">
+            <button class="pb-4 text-blue-700 font-bold border-b-2 border-blue-600 flex items-center gap-2 text-sm">
+                <span class="material-symbols-outlined text-lg" data-icon="person_manage">person</span>
+                User Management
+            </button>
+            <button class="pb-4 text-slate-500 hover:text-blue-600 font-medium flex items-center gap-2 text-sm transition-colors">
+                <span class="material-symbols-outlined text-lg"
+                      data-icon="settings_applications">settings_applications</span>
+                City System Settings
+            </button>
+            <button class="pb-4 text-slate-500 hover:text-blue-600 font-medium flex items-center gap-2 text-sm transition-colors">
+                <span class="material-symbols-outlined text-lg"
+                      data-icon="notifications_active">notifications_active</span>
+                Notifications
+            </button>
+            <button class="pb-4 text-slate-500 hover:text-blue-600 font-medium flex items-center gap-2 text-sm transition-colors">
+                <span class="material-symbols-outlined text-lg" data-icon="shield">shield</span>
+                Security
+            </button>
+        </div>
+        <!-- Bento Grid Layout for Settings Content -->
+        <div class="grid grid-cols-12 gap-8">
+            <!-- User Management Section (Large Module) -->
+            <div class="col-span-12 lg:col-span-8 space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold tracking-tight text-on-surface">Employee Directory</h3>
+                        <p class="text-sm text-on-surface-variant">Manage bank personnel and their access levels.</p>
+                    </div>
+                    <button class="px-6 py-2.5 bg-primary text-on-primary rounded-full font-bold text-sm shadow-sm hover:opacity-90 transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-lg" data-icon="person_add">person_add</span>
+                        Add Employee
+                    </button>
+                </div>
+                <div class="bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/5">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                        <tr class="bg-surface-container-low">
+                            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                                Employee
+                            </th>
+                            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                                Role
+                            </th>
+                            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                                Status
+                            </th>
+                            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                                Last Activity
+                            </th>
+                            <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant/5">
+                        <tr class="hover:bg-surface-container-low transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary font-bold">
+                                        JD
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold">Julian Draxler</p>
+                                        <p class="text-xs text-on-surface-variant">julian@gamecity.bank</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm">Bank Manager</td>
+                            <td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-container text-on-secondary-container">
+                                            Active
+                                        </span>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-on-surface-variant">2 mins ago</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+                                    <span class="material-symbols-outlined text-lg"
+                                          data-icon="more_vert">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">
+                                        SM
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold">Sarah Miller</p>
+                                        <p class="text-xs text-on-surface-variant">sarah.m@gamecity.bank</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm">Teller</td>
+                            <td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-container text-on-secondary-container">
+                                            Active
+                                        </span>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-on-surface-variant">1 hour ago</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+                                    <span class="material-symbols-outlined text-lg"
+                                          data-icon="more_vert">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">
+                                        RK
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold">Robert King</p>
+                                        <p class="text-xs text-on-surface-variant">king.r@gamecity.bank</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm">Credit Officer</td>
+                            <td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-high text-on-surface-variant">
+                                            Away
+                                        </span>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-on-surface-variant">4 hours ago</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+                                    <span class="material-symbols-outlined text-lg"
+                                          data-icon="more_vert">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-surface-container-low transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold">
+                                        AL
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold">Anita Lee</p>
+                                        <p class="text-xs text-on-surface-variant">anita@gamecity.bank</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm">Teller</td>
+                            <td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container/20 text-error">
+                                            Suspended
+                                        </span>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-on-surface-variant">2 days ago</td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+                                    <span class="material-symbols-outlined text-lg"
+                                          data-icon="more_vert">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- City Stats Cards (Mini Bento) -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-primary p-6 rounded-lg text-on-primary relative overflow-hidden">
+                        <div class="relative z-10">
+                            <p class="text-xs font-bold opacity-80 uppercase tracking-widest">Active Accounts</p>
+                            <h4 class="text-3xl font-black mt-1">12,482</h4>
+                            <div class="mt-4 flex items-center gap-1 text-xs bg-white/20 w-fit px-2 py-1 rounded-full">
+                                <span class="material-symbols-outlined text-[14px]"
+                                      data-icon="trending_up">trending_up</span>
+                                +4.2% this month
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl opacity-10"
+                              data-icon="account_balance">account_balance</span>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-lg text-on-primary relative overflow-hidden">
+                        <div class="relative z-10">
+                            <p class="text-xs font-bold opacity-80 uppercase tracking-widest">Global GC Liquidity</p>
+                            <h4 class="text-3xl font-black mt-1">4.2M <span class="text-sm font-normal">GC</span></h4>
+                            <div class="mt-4 flex items-center gap-1 text-xs bg-white/20 w-fit px-2 py-1 rounded-full">
+                                <span class="material-symbols-outlined text-[14px]" data-icon="verified_user">verified_user</span>
+                                City Reserve Stable
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl opacity-10"
+                              data-icon="savings">savings</span>
+                    </div>
+                </div>
+            </div>
+            <!-- System Configuration (Side Column) -->
+            <div class="col-span-12 lg:col-span-4 space-y-6">
+                <div class="bg-surface-container-low p-8 rounded-lg">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+                        System Config
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Input Field -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Base
+                                Monthly Allowance</label>
+                            <div class="relative">
+                                <input class="w-full bg-surface-container-lowest border-none rounded-lg py-3 px-4 text-sm font-bold focus:ring-2 focus:ring-primary/20"
+                                       type="text" value="1,200"/>
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant">GC</span>
+                            </div>
+                            <p class="text-[10px] text-on-surface-variant italic">Default amount credited to new
+                                citizens.</p>
+                        </div>
+                        <!-- Input Field -->
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Transaction
+                                Limits</label>
+                            <div class="relative">
+                                <input class="w-full bg-surface-container-lowest border-none rounded-lg py-3 px-4 text-sm font-bold focus:ring-2 focus:ring-primary/20"
+                                       type="text" value="50,000"/>
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant">GC</span>
+                            </div>
+                            <p class="text-[10px] text-on-surface-variant italic">Maximum GC per single transaction.</p>
+                        </div>
+                        <!-- Slider/Input Range Concept -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Credit
+                                    Interest Rates</label>
+                                <span class="text-sm font-bold text-primary">3.5%</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full w-[35%] bg-primary rounded-full"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold text-on-surface-variant">
+                                <span>0%</span>
+                                <span>10%</span>
+                            </div>
+                        </div>
+                        <!-- Toggles -->
+                        <div class="pt-4 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-bold">Auto-Audit Mode</p>
+                                    <p class="text-[10px] text-on-surface-variant">Verify high-value trades
+                                        automatically.</p>
+                                </div>
+                                <button class="w-12 h-6 bg-secondary rounded-full relative flex items-center px-1">
+                                    <div class="w-4 h-4 bg-white rounded-full ml-auto shadow-sm"></div>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm font-bold">Maintenance Mode</p>
+                                    <p class="text-[10px] text-on-surface-variant">Freeze all withdrawals for
+                                        updates.</p>
+                                </div>
+                                <button class="w-12 h-6 bg-surface-container-highest rounded-full relative flex items-center px-1">
+                                    <div class="w-4 h-4 bg-white rounded-full shadow-sm"></div>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="w-full mt-6 py-3 bg-primary/10 text-primary border border-primary/20 rounded-lg font-bold text-sm hover:bg-primary/20 transition-all">
+                            Save System Changes
+                        </button>
+                    </div>
+                </div>
+                <!-- The City Badge (Unique Component) -->
+                <div class="bg-tertiary-fixed/10 p-6 rounded-lg border border-tertiary-fixed/20">
+                    <div class="flex items-center gap-3 mb-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest bg-tertiary text-tertiary-fixed">
+                                Achievement
+                            </span>
+                    </div>
+                    <h4 class="text-sm font-bold text-on-tertiary-fixed">Platinum Vault Status</h4>
+                    <p class="text-xs text-on-tertiary-fixed-variant mt-1 leading-relaxed">Your city treasury has
+                        maintained a 99.9% uptime for the last 12 fiscal months. Bonus GC generated for city
+                        projects.</p>
+                    <div class="mt-4 flex -space-x-2">
+                        <img alt="Achievement Icon" class="w-8 h-8 rounded-full border-2 border-white bg-tertiary-fixed"
+                             data-alt="Golden trophy icon for bank excellence"
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsqjjUl4oFWrA6P1ZfUGdKy9MKjzDv3e1DG2KAVw0r9Ao1g6ozICqArwSFylCo3bgrypQXGJ2sbgil-VPrKh3omrm7z0CSQH3Kr5_1YBHSkON2nYob7Vuv6AeN0-EavKtlTt11-EeAo6o9r_8Z4YNWrBQUo31SFJus2x-XGO2GKqG7QHuNc21H8SIAhBwmL_LzmMdpCqkfBFHyyKoyb5qfxFy8Ljic1tKTAlJgYWSVcCQ-7MfWHOJtD490BFTIbVjcTvAjCQskposm"/>
+                        <img alt="Building Icon" class="w-8 h-8 rounded-full border-2 border-white bg-blue-400"
+                             data-alt="Blue city building icon"
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDusgYuLHDchl0REPFHObrShr0pPEsmOIrF90kMh8HKl41HWVgQ_66cPhVyA6TY6o6yg_KFoPBfp8tw_TMo9scx4yJ-d7jhBHz0IVyNAcw9WfDQs1yZOqHUKMXS5OD3vZOuh3ctYNCl7oyMaCVgYjSGxN4P9_fQnuouQgyh2sSkTTYO3nMyD36Pw_wvaRLUgho7zwJ87-JDX9SZgETEYOEPGoS15ucWM19fpFBybYRrKVh2Q27o_l0uICRt1-FVEDyrKoV7mt6CHWWM"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sticky Secondary Action Bar (Bottom) -->
+    <footer class="sticky bottom-0 w-full px-8 py-4 bg-white/80 backdrop-blur-md border-t border-outline-variant/10 flex justify-between items-center mt-auto">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+            Last updated: Oct 24, 2023 at 09:42 AM
+        </div>
+        <div class="flex gap-4">
+            <button class="px-6 py-2 text-sm font-bold text-on-surface hover:bg-surface-container-low rounded-full transition-colors">
+                Discard Changes
+            </button>
+            <button class="px-8 py-2 bg-primary text-on-primary rounded-full font-bold text-sm shadow-md hover:scale-95 duration-150 transition-transform">
+                Publish Configuration
+            </button>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

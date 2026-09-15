@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Customers Management | Game City Bank</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#fff7f3",
+                        "surface-dim": "#d1dce3",
+                        "on-secondary-fixed": "#004a15",
+                        "tertiary": "#845500",
+                        "inverse-primary": "#68abff",
+                        "background": "#f6fafe",
+                        "on-secondary-fixed-variant": "#0c6a24",
+                        "surface-container-highest": "#d9e4ec",
+                        "on-error-container": "#6e0a12",
+                        "on-primary-fixed": "#000c1e",
+                        "tertiary-fixed": "#feb64c",
+                        "outline-variant": "#a9b3bb",
+                        "on-surface": "#2a343a",
+                        "surface-bright": "#f6fafe",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f6fafe",
+                        "tertiary-dim": "#744a00",
+                        "secondary-dim": "#00611e",
+                        "on-secondary-container": "#005f1d",
+                        "inverse-surface": "#0a0f12",
+                        "tertiary-container": "#feb64c",
+                        "inverse-on-surface": "#999da1",
+                        "on-tertiary-fixed": "#3d2500",
+                        "surface-container-high": "#e1e9f0",
+                        "surface-container": "#e7eff5",
+                        "primary-fixed": "#68abff",
+                        "on-primary-container": "#002b52",
+                        "on-primary-fixed-variant": "#003461",
+                        "primary-container": "#68abff",
+                        "on-secondary": "#eaffe4",
+                        "on-tertiary-container": "#583700",
+                        "outline": "#727c83",
+                        "surface-tint": "#0060ad",
+                        "secondary-container": "#9ff79f",
+                        "secondary-fixed": "#9ff79f",
+                        "on-primary": "#f8f8ff",
+                        "tertiary-fixed-dim": "#eea840",
+                        "on-tertiary-fixed-variant": "#644000",
+                        "on-background": "#2a343a",
+                        "surface-variant": "#d9e4ec",
+                        "error": "#a83836",
+                        "primary": "#0060ad",
+                        "primary-dim": "#005498",
+                        "on-error": "#fff7f6",
+                        "secondary": "#136e27",
+                        "error-container": "#fa746f",
+                        "on-surface-variant": "#566167",
+                        "error-dim": "#67040d",
+                        "surface-container-low": "#eef4fa",
+                        "secondary-fixed-dim": "#91e892",
+                        "primary-fixed-dim": "#599ef1"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        h1, h2, h3, .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low flex flex-col p-4 gap-2 z-50">
+    <div class="flex items-center gap-3 px-2 mb-8 mt-2">
+        <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+            <span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+        </div>
+        <div>
+            <h1 class="text-lg font-bold text-blue-800 tracking-tight">Game City</h1>
+            <p class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">City Treasury</p>
+        </div>
+    </div>
+    <nav class="flex-1 space-y-1">
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="dashboard">dashboard</span>
+            <span class="text-sm font-medium">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-700 rounded-full shadow-sm font-semibold translate-x-1 duration-200"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="group">group</span>
+            <span class="text-sm font-medium">Customers</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="payments">payments</span>
+            <span class="text-sm font-medium">Payments</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600"
+                  data-icon="credit_score">credit_score</span>
+            <span class="text-sm font-medium">Credit Management</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="settings">settings</span>
+            <span class="text-sm font-medium">Settings</span>
+        </a>
+    </nav>
+    <div class="mt-auto p-4 bg-primary-container/20 rounded-2xl">
+        <p class="text-xs font-bold text-blue-800 mb-2">New Project</p>
+        <button class="w-full py-2 bg-primary text-on-primary rounded-full text-xs font-bold hover:scale-95 transition-transform">
+            Initialize Vault
+        </button>
+    </div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col">
+    <!-- TopAppBar -->
+    <header class="sticky top-0 w-full flex justify-between items-center px-8 py-4 bg-surface z-40">
+        <div class="flex items-center flex-1 max-w-xl">
+            <div class="relative w-full">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
+                      data-icon="search">search</span>
+                <input class="w-full bg-surface-container-lowest border-none rounded-full py-3 pl-12 pr-6 focus:ring-2 focus:ring-primary/40 text-sm placeholder:text-outline-variant"
+                       placeholder="Search by name or citizen ID" type="text"/>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-on-primary rounded-full font-bold text-sm hover:opacity-90 transition-all active:scale-95">
+                <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add Customer
+            </button>
+            <div class="flex items-center gap-2 border-l border-surface-container-high pl-4 ml-2">
+                <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full relative">
+                    <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+                </button>
+                <button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full">
+                    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                </button>
+                <div class="ml-2 w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+                    <img class="w-full h-full object-cover" data-alt="User profile avatar showing young bank manager"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX3YmOgHs_v7TJPMwXXUDyzWzuP95ZHCkDTgVL9fW6oyQbXZUft_VNIHgj7c0gIz7_hEuiFC1MVbGNc5WB4dOAdDc4XNOhvuGozRD2N12wtgZDvJKgnJS1p9Q9nnXg9muvBu0mHzp9NftiHBnuz5WgQAO36UYLJiVMaAuYzSIzTGbwqeTXfj25eRTLeFbxFDJcmkaG7uUamJf22Jkfgbf2RLUHvG4618B5elICumuIhpBJq6Z0sZTvDz5eZUVl81kK2pVuMkLY7pos"/>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Page Canvas -->
+    <div class="p-8 flex-1">
+        <div class="mb-8">
+            <h2 class="text-3xl font-black text-on-surface tracking-tight mb-2">Citizens Directory</h2>
+            <p class="text-on-surface-variant font-medium">Manage and monitor accounts for the future of Game City.</p>
+        </div>
+        <!-- Dashboard Style Bento Grid Header (Visual Hierarchy) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-primary">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="p-2 bg-primary-container/30 text-primary rounded-xl material-symbols-outlined"
+                          data-icon="person_add">person_add</span>
+                    <span class="text-[10px] font-bold text-secondary bg-secondary-container/30 px-2 py-1 rounded-full">+12% vs last month</span>
+                </div>
+                <p class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">New Citizens</p>
+                <h3 class="text-4xl font-black text-primary">1,248</h3>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-secondary">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="p-2 bg-secondary-container/30 text-secondary rounded-xl material-symbols-outlined"
+                          data-icon="account_balance_wallet">account_balance_wallet</span>
+                </div>
+                <p class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Total GC Deposits</p>
+                <h3 class="text-4xl font-black text-secondary">4.2M</h3>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-tertiary">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="p-2 bg-tertiary-container/30 text-tertiary rounded-xl material-symbols-outlined"
+                          data-icon="warning">warning</span>
+                    <span class="text-[10px] font-bold text-error bg-error-container/20 px-2 py-1 rounded-full">Requires Review</span>
+                </div>
+                <p class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">Pending Verifications</p>
+                <h3 class="text-4xl font-black text-tertiary">24</h3>
+            </div>
+        </div>
+        <!-- Filters & Search -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div class="flex items-center gap-2 p-1 bg-surface-container rounded-full">
+                <button class="px-6 py-2 bg-white text-primary font-bold rounded-full shadow-sm text-sm">All</button>
+                <button class="px-6 py-2 text-on-surface-variant hover:text-primary font-medium text-sm transition-colors">
+                    Active
+                </button>
+                <button class="px-6 py-2 text-on-surface-variant hover:text-primary font-medium text-sm transition-colors">
+                    Inactive
+                </button>
+                <button class="px-6 py-2 text-on-surface-variant hover:text-primary font-medium text-sm transition-colors">
+                    Flagged
+                </button>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-lowest text-on-surface font-semibold rounded-full text-sm border-none shadow-sm hover:bg-surface-container-high transition-colors">
+                    <span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+                    More Filters
+                </button>
+                <button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-lowest text-on-surface font-semibold rounded-full text-sm border-none shadow-sm hover:bg-surface-container-high transition-colors">
+                    <span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                    Export
+                </button>
+            </div>
+        </div>
+        <!-- Customers Table -->
+        <div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-surface-container-low border-b border-surface-container">
+                <tr>
+                    <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Citizen
+                        Name
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Citizen
+                        ID
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Current
+                        Balance
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Account
+                        Status
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Last
+                        Activity
+                    </th>
+                    <th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-right">
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container-low">
+                <!-- Row 1 -->
+                <tr class="hover:bg-surface-container-low/40 transition-colors group">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center overflow-hidden border border-secondary/10">
+                                <img class="w-full h-full object-cover" data-alt="Citizen profile of Sarah Jenkins"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmIzqANJfgsT88i3cR_M3b7AJlg3CFoVZSo_lr3p3aY2CMSHvBHhdiyBjgXNeTBSxgT4QKcZDfxrE5idmivgbfUx0VPsjChJYP2d2C-kgSeRYE6T11lrbRPem0oq58QindNASFzRDwuZXKbVR4b9-iSgcbjQM3eWz_BqH5jKFEuUNWu2C-T0nCmbmZcy8i0NjhZZz1Wnp71je8m_9Pkkev-q_VwwhVT_xxeRCwi8_9LsNVhdHnmnhJ_eN_2v-ffomWoKardJ503BdN"/>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Sarah
+                                    Jenkins</p>
+                                <p class="text-xs text-on-surface-variant">Member since Sep 2023</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 font-mono text-sm text-on-surface-variant">GC-884210</td>
+                    <td class="px-6 py-4">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-on-surface">1,450.00 GC</span>
+                            <div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+                                <div class="h-full bg-secondary w-3/4 rounded-full"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+                                    Active
+                                </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-on-surface-variant">2 hours ago</td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex justify-end gap-1">
+                            <button class="p-2 hover:bg-primary-container/20 text-primary rounded-full transition-colors"
+                                    title="View Account">
+                                <span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+                            </button>
+                            <button class="p-2 hover:bg-primary-container/20 text-primary rounded-full transition-colors"
+                                    title="Manage Credit">
+                                <span class="material-symbols-outlined text-lg"
+                                      data-icon="credit_score">credit_score</span>
+                            </button>
+                            <button class="p-2 hover:bg-surface-container-high text-on-surface-variant rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr class="hover:bg-surface-container-low/40 transition-colors group">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center overflow-hidden border border-tertiary/10">
+                                <img class="w-full h-full object-cover" data-alt="Citizen profile of Leo Maxwell"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuC14mQInFQC1Idj3Szj2aOf8jROD_ffZ7XjCB311u6HFq6zWpUwQKnTweylKDCCuJ4G35Fygulzoy3m2R8zjmRRWTqB_pCI1fcjMYAh8-UX7ex-Q2KOkYkjLM0bqb2_D8c5Fnntfr5I0UfwejA8-Nql46XFKWHjDPMWsVUxcR1qaIwPbWmawa0-XZgayw7gKtpVxiax_FeGeEvA6qY_wLBDFSbgNshQu1iOx6oYuzKwkaKEUTsU8FeWi8aAqDqpncTMDwpxT7U7LR9q"/>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Leo
+                                    Maxwell</p>
+                                <p class="text-xs text-on-surface-variant">Member since Jan 2024</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 font-mono text-sm text-on-surface-variant">GC-332901</td>
+                    <td class="px-6 py-4">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-on-surface">420.50 GC</span>
+                            <div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+                                <div class="h-full bg-tertiary w-1/4 rounded-full"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-tertiary-container/30 text-tertiary text-xs font-bold rounded-full">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+                                    Pending
+                                </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-on-surface-variant">Dec 24, 2024</td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex justify-end gap-1">
+                            <button class="p-2 hover:bg-primary-container/20 text-primary rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+                            </button>
+                            <button class="p-2 hover:bg-primary-container/20 text-primary rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg"
+                                      data-icon="credit_score">credit_score</span>
+                            </button>
+                            <button class="p-2 hover:bg-surface-container-high text-on-surface-variant rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr class="hover:bg-surface-container-low/40 transition-colors group">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-error-container/20 flex items-center justify-center overflow-hidden border border-error/10">
+                                <img class="w-full h-full object-cover" data-alt="Citizen profile of Amara Okafor"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO4oD7YeY1o7wrvaZALQ_WyvB9qKYmYatlOi2Nhy9zVmPsFzqb3nQ256e8JTfqVJHH3PhOy0nkHVkzwsZA-5sQGk0AYg-3CcSfOogGU7cjjSghBiLy_hIG0cg7cWevl79EGQHJW4oaeXeD9Jc1mzR_84dZTIWCiOqlPb2yYX-wLSw8w3hdD7nsTLn3I8nnpGnRV9wFGwgp_R1UJN9KeQ2YlU3wFlmaIXGHc6XD9aDovqiJjfLWHw9QYBWt_l1mFXWjgeWqh1ZpETJq"/>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Amara
+                                    Okafor</p>
+                                <p class="text-xs text-on-surface-variant">Member since May 2023</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 font-mono text-sm text-on-surface-variant">GC-992185</td>
+                    <td class="px-6 py-4">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-on-surface">2,890.00 GC</span>
+                            <div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+                                <div class="h-full bg-secondary w-full rounded-full"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-error-container/30 text-error text-xs font-bold rounded-full">
+<span class="material-symbols-outlined text-[10px]" data-icon="flag">flag</span>
+                                    Flagged
+                                </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-on-surface-variant">Just now</td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex justify-end gap-1">
+                            <button class="p-2 hover:bg-primary-container/20 text-primary rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+                            </button>
+                            <button class="p-2 hover:bg-primary-container/20 text-primary rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg"
+                                      data-icon="credit_score">credit_score</span>
+                            </button>
+                            <button class="p-2 hover:bg-surface-container-high text-on-surface-variant rounded-full transition-colors">
+                                <span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- Pagination -->
+            <div class="px-6 py-4 bg-surface-container-low/20 flex items-center justify-between">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Showing 3 of 1,248
+                    Citizens</p>
+                <div class="flex items-center gap-2">
+                    <button class="p-2 bg-surface-container-lowest border-none shadow-sm rounded-full text-outline-variant hover:text-primary transition-colors disabled:opacity-50"
+                            disabled="">
+                        <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                    </button>
+                    <div class="flex gap-1">
+                        <button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-full text-xs font-bold">
+                            1
+                        </button>
+                        <button class="w-8 h-8 flex items-center justify-center hover:bg-white text-on-surface-variant rounded-full text-xs font-bold transition-colors">
+                            2
+                        </button>
+                        <button class="w-8 h-8 flex items-center justify-center hover:bg-white text-on-surface-variant rounded-full text-xs font-bold transition-colors">
+                            3
+                        </button>
+                    </div>
+                    <button class="p-2 bg-surface-container-lowest border-none shadow-sm rounded-full text-on-surface hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full shadow-lg shadow-primary/25 flex items-center justify-center active:scale-95 transition-transform group">
+    <span class="material-symbols-outlined text-2xl" data-icon="add_task">add_task</span>
+    <span class="absolute right-full mr-3 px-3 py-1 bg-on-surface text-surface text-xs font-bold rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            Quick Transaction
+        </span>
+</button>
+</body>
+</html>

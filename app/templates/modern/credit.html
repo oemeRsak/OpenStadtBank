@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Credit Management - Game City Bank</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#fff7f3",
+                        "surface-dim": "#d1dce3",
+                        "on-secondary-fixed": "#004a15",
+                        "tertiary": "#845500",
+                        "inverse-primary": "#68abff",
+                        "background": "#f6fafe",
+                        "on-secondary-fixed-variant": "#0c6a24",
+                        "surface-container-highest": "#d9e4ec",
+                        "on-error-container": "#6e0a12",
+                        "on-primary-fixed": "#000c1e",
+                        "tertiary-fixed": "#feb64c",
+                        "outline-variant": "#a9b3bb",
+                        "on-surface": "#2a343a",
+                        "surface-bright": "#f6fafe",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f6fafe",
+                        "tertiary-dim": "#744a00",
+                        "secondary-dim": "#00611e",
+                        "on-secondary-container": "#005f1d",
+                        "inverse-surface": "#0a0f12",
+                        "tertiary-container": "#feb64c",
+                        "inverse-on-surface": "#999da1",
+                        "on-tertiary-fixed": "#3d2500",
+                        "surface-container-high": "#e1e9f0",
+                        "surface-container": "#e7eff5",
+                        "primary-fixed": "#68abff",
+                        "on-primary-container": "#002b52",
+                        "on-primary-fixed-variant": "#003461",
+                        "primary-container": "#68abff",
+                        "on-secondary": "#eaffe4",
+                        "on-tertiary-container": "#583700",
+                        "outline": "#727c83",
+                        "surface-tint": "#0060ad",
+                        "secondary-container": "#9ff79f",
+                        "secondary-fixed": "#9ff79f",
+                        "on-primary": "#f8f8ff",
+                        "tertiary-fixed-dim": "#eea840",
+                        "on-tertiary-fixed-variant": "#644000",
+                        "on-background": "#2a343a",
+                        "surface-variant": "#d9e4ec",
+                        "error": "#a83836",
+                        "primary": "#0060ad",
+                        "primary-dim": "#005498",
+                        "on-error": "#fff7f6",
+                        "secondary": "#136e27",
+                        "error-container": "#fa746f",
+                        "on-surface-variant": "#566167",
+                        "error-dim": "#67040d",
+                        "surface-container-low": "#eef4fa",
+                        "secondary-fixed-dim": "#91e892",
+                        "primary-fixed-dim": "#599ef1"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-slate-900 flex flex-col p-4 gap-2 z-50">
+    <div class="mb-8 px-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg">
+            <span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+        </div>
+        <div>
+            <h1 class="text-lg font-bold text-blue-800 dark:text-blue-300 leading-none">Game City</h1>
+            <p class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant opacity-60">City
+                Treasury</p>
+        </div>
+    </div>
+    <nav class="flex-grow flex flex-col gap-1">
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="dashboard">dashboard</span>
+            <span class="font-medium text-sm">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="group">group</span>
+            <span class="font-medium text-sm">Customers</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="payments">payments</span>
+            <span class="font-medium text-sm">Payments</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-full shadow-sm font-semibold translate-x-1 duration-200"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="credit_score">credit_score</span>
+            <span class="font-medium text-sm">Credit Management</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/50 rounded-full transition-all group"
+           href="#">
+            <span class="material-symbols-outlined group-hover:text-blue-600" data-icon="settings">settings</span>
+            <span class="font-medium text-sm">Settings</span>
+        </a>
+    </nav>
+    <button class="mt-auto mx-2 bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:scale-[1.02] transition-transform">
+        <span class="material-symbols-outlined" data-icon="add">add</span>
+        New Project
+    </button>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen p-8 lg:p-12">
+    <!-- Top Navigation Anchor -->
+    <header class="flex justify-between items-center mb-12">
+        <div>
+            <h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Credit Management</h2>
+            <p class="text-on-surface-variant font-medium">Monitoring the financial heartbeat of Game City.</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline"
+                      data-icon="search">search</span>
+                <input class="bg-surface-container-lowest border-none rounded-full pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary/40 text-sm shadow-sm"
+                       placeholder="Search citizens..." type="text"/>
+            </div>
+            <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+                <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+            </button>
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+                <img alt="User profile avatar" data-alt="Close up professional headshot of a person"
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH3y0JTJpRoBPIJ4Dv7ZfWG0M2kATMX0NhK5lmbIipJtR4J2r6o1AsnuPnQzxj4ZLgMon66grKvEtV_7JFLBq-46mD3Wl9E0rHQlTWZX6Zs6VyiC_UuvirIbhc07ntIrNG4uXrN6QyCYDBJGNiGXnktxiSpuMltZRc67GPjjqVO9GPZG_vlXSpIOyITBo28v_1zMDPU1QSbFXwjMLtMKpdWWLWZqSDhYjTT7n1doU9DwQVEo6tonR6rwcf_WU_zYg_xbPhLrsVONTf"/>
+            </div>
+        </div>
+    </header>
+    <!-- Bento Grid: Overview & Trends -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+        <!-- Stats Cards Column -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+            <!-- Total Active Credits -->
+            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-primary">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Total Active Credits</span>
+                    <div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-sm" data-icon="credit_card">credit_card</span>
+                    </div>
+                </div>
+                <div class="text-3xl font-black text-on-surface">1,284</div>
+                <div class="flex items-center gap-1 mt-2 text-secondary font-bold text-xs">
+                    <span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                    <span>+12% this month</span>
+                </div>
+            </div>
+            <!-- Total Amount Lent -->
+            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-secondary">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Total Amount Lent</span>
+                    <div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+                        <span class="material-symbols-outlined text-sm" data-icon="account_balance_wallet">account_balance_wallet</span>
+                    </div>
+                </div>
+                <div class="text-3xl font-black text-on-surface">₺4.82M</div>
+                <div class="flex items-center gap-1 mt-2 text-secondary font-bold text-xs">
+                    <span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                    <span>Collateral Secured</span>
+                </div>
+            </div>
+            <!-- Credits On Track -->
+            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-tertiary">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Credits On Track</span>
+                    <div class="w-8 h-8 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                    </div>
+                </div>
+                <div class="text-3xl font-black text-on-surface">94.2%</div>
+                <div class="flex items-center gap-1 mt-2 text-on-surface-variant font-medium text-xs">
+                    <span>Industry Avg: 88%</span>
+                </div>
+            </div>
+        </div>
+        <!-- Trend Chart Area -->
+        <div class="lg:col-span-8 bg-surface-container-lowest p-8 rounded-lg shadow-sm flex flex-col">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <h3 class="text-xl font-extrabold text-on-surface">Repayment Trends</h3>
+                    <p class="text-on-surface-variant text-sm">Monthly credit flow and citizen trust rating</p>
+                </div>
+                <select class="bg-surface-container-low border-none rounded-full text-xs font-bold py-2 px-4 focus:ring-primary/20 cursor-pointer">
+                    <option>Last 6 Months</option>
+                    <option>Year to Date</option>
+                </select>
+            </div>
+            <div class="flex-grow flex items-end gap-4 min-h-[200px] px-2">
+                <!-- Simple Bar Visualizer -->
+                <div class="flex-1 flex flex-col items-center gap-3">
+                    <div class="w-full bg-primary/10 rounded-t-lg relative group overflow-hidden" style="height: 60%;">
+                        <div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all"
+                             style="height: 100%;"></div>
+                    </div>
+                    <span class="text-[10px] font-bold text-outline uppercase">Jan</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-3">
+                    <div class="w-full bg-primary/10 rounded-t-lg relative group overflow-hidden" style="height: 75%;">
+                        <div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all"
+                             style="height: 100%;"></div>
+                    </div>
+                    <span class="text-[10px] font-bold text-outline uppercase">Feb</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-3">
+                    <div class="w-full bg-primary/10 rounded-t-lg relative group overflow-hidden" style="height: 45%;">
+                        <div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all"
+                             style="height: 100%;"></div>
+                    </div>
+                    <span class="text-[10px] font-bold text-outline uppercase">Mar</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-3">
+                    <div class="w-full bg-primary/10 rounded-t-lg relative group overflow-hidden" style="height: 90%;">
+                        <div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all"
+                             style="height: 100%;"></div>
+                    </div>
+                    <span class="text-[10px] font-bold text-outline uppercase">Apr</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-3">
+                    <div class="w-full bg-primary/10 rounded-t-lg relative group overflow-hidden" style="height: 70%;">
+                        <div class="absolute bottom-0 w-full bg-primary rounded-t-lg transition-all"
+                             style="height: 100%;"></div>
+                    </div>
+                    <span class="text-[10px] font-bold text-outline uppercase">May</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-3">
+                    <div class="w-full bg-gradient-to-t from-primary to-primary-container rounded-t-lg relative group overflow-hidden"
+                         style="height: 100%;">
+                    </div>
+                    <span class="text-[10px] font-bold text-on-surface uppercase">Jun</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Loan Tracker Table -->
+    <section class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+        <div class="p-6 flex justify-between items-center border-b border-outline-variant/10">
+            <div>
+                <h3 class="text-xl font-extrabold text-on-surface">Recent Active Credits</h3>
+                <p class="text-on-surface-variant text-sm">Detailed breakdown of top citizen loans</p>
+            </div>
+            <div class="flex gap-3">
+                <button class="bg-surface-container-high text-primary px-6 py-2 rounded-full text-sm font-bold hover:bg-surface-container-highest transition-colors">
+                    Adjust Payment Plan
+                </button>
+                <button class="bg-primary text-on-primary px-6 py-2 rounded-full text-sm font-bold hover:shadow-lg transition-all">
+                    Approve New Credit
+                </button>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead>
+                <tr class="bg-surface-container-low">
+                    <th class="px-6 py-4 text-[10px] font-black uppercase text-outline tracking-widest">Citizen</th>
+                    <th class="px-6 py-4 text-[10px] font-black uppercase text-outline tracking-widest">Loan Amount</th>
+                    <th class="px-6 py-4 text-[10px] font-black uppercase text-outline tracking-widest">Type</th>
+                    <th class="px-6 py-4 text-[10px] font-black uppercase text-outline tracking-widest">Status</th>
+                    <th class="px-6 py-4 text-[10px] font-black uppercase text-outline tracking-widest">Progress</th>
+                    <th class="px-6 py-4 text-[10px] font-black uppercase text-outline tracking-widest">Actions</th>
+                </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10">
+                <!-- Row 1 -->
+                <tr class="hover:bg-surface transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+                                JD
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Julianna Dash</p>
+                                <p class="text-xs text-on-surface-variant">Citizen #8,421</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="font-bold text-on-surface">₺45,000</p>
+                        <p class="text-xs text-on-surface-variant">Interest: 2.4%</p>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-medium text-on-surface">Small Business</td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary-container text-secondary-dim">On Track</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="w-32">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] font-bold text-on-surface-variant">80% Repaid</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr class="hover:bg-surface transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+                                MW
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Marcus Wright</p>
+                                <p class="text-xs text-on-surface-variant">Citizen #1,102</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="font-bold text-on-surface">₺120,000</p>
+                        <p class="text-xs text-on-surface-variant">Interest: 3.1%</p>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-medium text-on-surface">Real Estate</td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-tertiary-container/30 text-tertiary">Pending Review</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="w-32">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] font-bold text-on-surface-variant">15% Repaid</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-tertiary rounded-full" style="width: 15%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr class="hover:bg-surface transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+                                SL
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Sarah Lee</p>
+                                <p class="text-xs text-on-surface-variant">Citizen #5,593</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="font-bold text-on-surface">₺8,200</p>
+                        <p class="text-xs text-on-surface-variant">Interest: 1.8%</p>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-medium text-on-surface">Education</td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-error-container/20 text-error">Overdue</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="w-32">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] font-bold text-on-surface-variant">60% Repaid</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-error rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Row 4 -->
+                <tr class="hover:bg-surface transition-colors">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-bold text-primary">
+                                AK
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Arthur King</p>
+                                <p class="text-xs text-on-surface-variant">Citizen #2,948</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="font-bold text-on-surface">₺22,500</p>
+                        <p class="text-xs text-on-surface-variant">Interest: 2.2%</p>
+                    </td>
+                    <td class="px-6 py-4 text-sm font-medium text-on-surface">Equipment</td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-secondary-container text-secondary-dim">On Track</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="w-32">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] font-bold text-on-surface-variant">42% Repaid</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary rounded-full" style="width: 42%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <button class="w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/30">
+            <p class="text-xs text-on-surface-variant font-medium">Showing 4 of 1,284 credits</p>
+            <div class="flex gap-2">
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-outline border border-outline-variant/10 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary shadow-sm text-xs font-bold">
+                    1
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors text-xs font-bold">
+                    2
+                </button>
+                <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-lowest text-outline border border-outline-variant/10 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Floating Quick Stats / Achievements Section -->
+    <section class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-tertiary to-tertiary-dim p-6 rounded-lg text-white shadow-xl relative overflow-hidden group">
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+                    <h4 class="font-bold text-sm uppercase tracking-widest opacity-80">City Achievement</h4>
+                </div>
+                <p class="text-2xl font-black mb-1">Financial Stability Badge</p>
+                <p class="text-white/70 text-sm">Awarded for keeping defaults below 1% for 3 consecutive months.</p>
+            </div>
+            <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-10 group-hover:scale-110 transition-transform duration-500"
+                  data-icon="star">star</span>
+        </div>
+        <div class="bg-surface-container-highest p-6 rounded-lg border-2 border-dashed border-outline-variant/30 flex flex-col justify-center items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+            </div>
+            <h4 class="font-bold text-on-surface">Proactive Management</h4>
+            <p class="text-on-surface-variant text-sm px-4">6 Citizens are eligible for a credit limit increase based on
+                recent behavior.</p>
+            <button class="mt-4 text-primary font-bold text-sm hover:underline">Review Eligibility</button>
+        </div>
+        <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-secondary/10 flex items-center gap-6">
+            <div class="relative w-20 h-20 flex-shrink-0">
+                <svg class="w-20 h-20 rotate-[-90deg]">
+                    <circle class="fill-none stroke-surface-container-highest stroke-[6px]" cx="40" cy="40"
+                            r="34"></circle>
+                    <circle class="fill-none stroke-secondary stroke-[6px]" cx="40" cy="40" r="34"
+                            stroke-dasharray="213.6" stroke-dashoffset="64"></circle>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-sm font-black text-on-surface">70%</span>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-extrabold text-on-surface leading-tight">Civic Goal Reached</h4>
+                <p class="text-on-surface-variant text-xs mt-1">70% of city credits are now supporting green
+                    infrastructure.</p>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

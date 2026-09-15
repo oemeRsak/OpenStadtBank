@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Game City Bank - Dashboard</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet"/>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet"/>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#fff7f3",
+                        "surface-dim": "#d1dce3",
+                        "on-secondary-fixed": "#004a15",
+                        "tertiary": "#845500",
+                        "inverse-primary": "#68abff",
+                        "background": "#f6fafe",
+                        "on-secondary-fixed-variant": "#0c6a24",
+                        "surface-container-highest": "#d9e4ec",
+                        "on-error-container": "#6e0a12",
+                        "on-primary-fixed": "#000c1e",
+                        "tertiary-fixed": "#feb64c",
+                        "outline-variant": "#a9b3bb",
+                        "on-surface": "#2a343a",
+                        "surface-bright": "#f6fafe",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f6fafe",
+                        "tertiary-dim": "#744a00",
+                        "secondary-dim": "#00611e",
+                        "on-secondary-container": "#005f1d",
+                        "inverse-surface": "#0a0f12",
+                        "tertiary-container": "#feb64c",
+                        "inverse-on-surface": "#999da1",
+                        "on-tertiary-fixed": "#3d2500",
+                        "surface-container-high": "#e1e9f0",
+                        "surface-container": "#e7eff5",
+                        "primary-fixed": "#68abff",
+                        "on-primary-container": "#002b52",
+                        "on-primary-fixed-variant": "#003461",
+                        "primary-container": "#68abff",
+                        "on-secondary": "#eaffe4",
+                        "on-tertiary-container": "#583700",
+                        "outline": "#727c83",
+                        "surface-tint": "#0060ad",
+                        "secondary-container": "#9ff79f",
+                        "secondary-fixed": "#9ff79f",
+                        "on-primary": "#f8f8ff",
+                        "tertiary-fixed-dim": "#eea840",
+                        "on-tertiary-fixed-variant": "#644000",
+                        "on-background": "#2a343a",
+                        "surface-variant": "#d9e4ec",
+                        "error": "#a83836",
+                        "primary": "#0060ad",
+                        "primary-dim": "#005498",
+                        "on-error": "#fff7f6",
+                        "secondary": "#136e27",
+                        "error-container": "#fa746f",
+                        "on-surface-variant": "#566167",
+                        "error-dim": "#67040d",
+                        "surface-container-low": "#eef4fa",
+                        "secondary-fixed-dim": "#91e892",
+                        "primary-fixed-dim": "#599ef1"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-slate-900 p-4 gap-2 z-50">
+    <div class="flex items-center gap-3 px-4 py-6">
+        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+            <span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+        </div>
+        <div>
+            <h1 class="text-lg font-bold text-blue-800 dark:text-blue-300 leading-none">Game City</h1>
+            <p class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">City Treasury</p>
+        </div>
+    </div>
+    <nav class="flex-1 flex flex-col gap-1 mt-4">
+        <!-- Active State Logic: Dashboard is current page -->
+        <a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-full shadow-sm font-semibold translate-x-1 duration-200"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+            <span class="text-sm">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 dark:hover:bg-slate-800/50 rounded-full transition-all"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="group">group</span>
+            <span class="text-sm">Customers</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 dark:hover:bg-slate-800/50 rounded-full transition-all"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="payments">payments</span>
+            <span class="text-sm">Payments</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 dark:hover:bg-slate-800/50 rounded-full transition-all"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="credit_score">credit_score</span>
+            <span class="text-sm">Credit Management</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 dark:hover:bg-slate-800/50 rounded-full transition-all"
+           href="#">
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span class="text-sm">Settings</span>
+        </a>
+    </nav>
+    <div class="mt-auto p-4 bg-primary/5 rounded-2xl">
+        <p class="text-xs font-semibold text-primary mb-2">City Treasury Status</p>
+        <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+            <div class="h-full bg-secondary w-[82%] rounded-full"></div>
+        </div>
+        <p class="text-[10px] mt-2 text-on-surface-variant">82% Daily Goal Reached</p>
+    </div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+    <!-- TopAppBar Component -->
+    <header class="sticky top-0 w-full flex justify-between items-center px-6 py-3 z-40 bg-surface dark:bg-slate-900">
+        <div class="flex items-center gap-4 flex-1">
+            <div class="relative w-full max-w-md hidden lg:block">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl"
+                      data-icon="search">search</span>
+                <input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-outline-variant"
+                       placeholder="Search accounts, citizens..." type="text"/>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <button class="px-5 py-2.5 rounded-full bg-surface-container-highest text-primary font-bold text-sm hover:bg-blue-50 transition-colors active:scale-95 duration-150">
+                Make Payment
+            </button>
+            <button class="px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-sm shadow-sm hover:opacity-90 active:scale-95 duration-150">
+                Add Customer
+            </button>
+            <div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+            <button class="w-10 h-10 flex items-center justify-center text-slate-600 hover:bg-blue-50 rounded-full transition-colors">
+                <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+            </button>
+            <div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-white shadow-sm">
+                <img alt="User" data-alt="User profile avatar showing professional male professional"
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGI_XIrm1E7ivAt9ZZg4MOImWlzBCahivE5mPm52fb3lIuc8LxUJXE3hYurPF39Sjc-SuOCvANYDpR6OE0_6IVCsgVB3zWyzo_3iVIuvZrxj-z0GQqMS36jxLCzDL2LcyKyElVbfr3Mzmt9A4VnAtT6SBFfrdpNz2NnFqdSkXHt-fhplCJ7ZCOCQ9eGnh9Zt0JbC6TpWqghDe3HG6TYkCt3RSxS6MRIuSfNIGqv20ZEmz61NXF2ak6fZK2CMqY6IeVhjxEBFcn8AFy"/>
+            </div>
+        </div>
+    </header>
+    <!-- Dashboard Content -->
+    <div class="p-8 lg:p-10 flex flex-col gap-10">
+        <!-- Page Header -->
+        <section class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h2 class="text-3xl font-extrabold text-blue-700 tracking-tight mb-1">City Treasury Overview</h2>
+                <p class="text-on-surface-variant font-medium">Welcome back, Administrator. Here's what's happening in
+                    Game City today.</p>
+            </div>
+            <div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full">
+                <span class="material-symbols-outlined text-secondary" data-icon="calendar_today">calendar_today</span>
+                <span class="text-sm font-bold text-on-surface-variant">October 24, 2023</span>
+            </div>
+        </section>
+        <!-- Bento Grid: Stats Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1: Total Young Citizens -->
+            <div class="bg-blue-50/50 p-6 rounded-lg flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-100 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+                <div class="z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-4">
+                        <span class="material-symbols-outlined text-blue-600 text-3xl"
+                              data-icon="child_care">child_care</span>
+                    </div>
+                    <p class="text-sm font-semibold text-blue-800/70 mb-1">Total Young Citizens</p>
+                    <h3 class="text-3xl font-black text-blue-900 tracking-tighter">12,482</h3>
+                </div>
+            </div>
+            <!-- Card 2: Total City Balance -->
+            <div class="bg-emerald-50/50 p-6 rounded-lg flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-100 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+                <div class="z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-4">
+                        <span class="material-symbols-outlined text-secondary text-3xl"
+                              data-icon="payments">payments</span>
+                    </div>
+                    <p class="text-sm font-semibold text-emerald-800/70 mb-1">Total City Balance</p>
+                    <div class="flex items-baseline gap-1">
+                        <h3 class="text-3xl font-black text-emerald-900 tracking-tighter">4,892,100</h3>
+                        <span class="text-xs font-bold text-secondary bg-secondary-container px-2 py-0.5 rounded-full">GC</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Active Credit Projects -->
+            <div class="bg-amber-50/50 p-6 rounded-lg flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-amber-100 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+                <div class="z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-4">
+                        <span class="material-symbols-outlined text-tertiary text-3xl" data-icon="domain">domain</span>
+                    </div>
+                    <p class="text-sm font-semibold text-amber-800/70 mb-1">Active Credit Projects</p>
+                    <h3 class="text-3xl font-black text-amber-900 tracking-tighter">42</h3>
+                </div>
+            </div>
+            <!-- Card 4: Today's Transactions -->
+            <div class="bg-indigo-50/50 p-6 rounded-lg flex flex-col justify-between min-h-[160px] relative overflow-hidden group">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-100 rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+                <div class="z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-4">
+                        <span class="material-symbols-outlined text-indigo-600 text-3xl" data-icon="send">send</span>
+                    </div>
+                    <p class="text-sm font-semibold text-indigo-800/70 mb-1">Today's Transactions</p>
+                    <h3 class="text-3xl font-black text-indigo-900 tracking-tighter">894</h3>
+                </div>
+            </div>
+        </section>
+        <!-- Main Interactive Section: Activity & Actions -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Recent Activity Feed (2/3 width) -->
+            <div class="lg:col-span-2 flex flex-col gap-6">
+                <div class="flex items-center justify-between">
+                    <h4 class="text-xl font-bold text-on-surface tracking-tight">Recent Activity</h4>
+                    <button class="text-sm font-bold text-primary hover:underline">View All Feed</button>
+                </div>
+                <div class="bg-surface-container-lowest rounded-lg p-2 flex flex-col">
+                    <!-- Activity Item 1 -->
+                    <div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-xl" data-icon="south_west">south_west</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Deposit: City Park Fund</p>
+                                <p class="text-xs text-on-surface-variant">Account: #GK-2940 • Today, 10:42 AM</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-black text-secondary">+1,250 GC</p>
+                            <span class="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Success</span>
+                        </div>
+                    </div>
+                    <!-- Activity Item 2 -->
+                    <div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-xl" data-icon="person_add">person_add</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">New Account: Leo "Rocket" Smith</p>
+                                <p class="text-xs text-on-surface-variant">Type: Junior Saver • Today, 09:15 AM</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-black text-on-surface-variant">Verified</p>
+                            <span class="text-[10px] bg-tertiary/10 text-tertiary px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">New Citizen</span>
+                        </div>
+                    </div>
+                    <!-- Activity Item 3 -->
+                    <div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-error-container/20 flex items-center justify-center text-error">
+                                <span class="material-symbols-outlined text-xl" data-icon="north_east">north_east</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Withdrawal: Playground Maintenance</p>
+                                <p class="text-xs text-on-surface-variant">Account: #CK-1102 • Yesterday, 04:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-black text-error">-4,800 GC</p>
+                            <span class="text-[10px] bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Completed</span>
+                        </div>
+                    </div>
+                    <!-- Activity Item 4 -->
+                    <div class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors rounded-xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-xl" data-icon="south_west">south_west</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Monthly Allowance Disbursement</p>
+                                <p class="text-xs text-on-surface-variant">842 Accounts Processed • Yesterday, 08:00
+                                    AM</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-black text-secondary">+42,100 GC</p>
+                            <span class="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Batch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side: Quick Action Panel & Growth (1/3 width) -->
+            <div class="flex flex-col gap-8">
+                <!-- Quick Actions -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-xl font-bold text-on-surface tracking-tight">Bank Command Center</h4>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button class="flex items-center gap-4 p-4 bg-white hover:bg-blue-50 text-left rounded-lg shadow-sm border border-transparent hover:border-primary/20 transition-all group">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 group-hover:bg-white flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-2xl" data-icon="add_card">add_card</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Open New Account</p>
+                                <p class="text-[11px] text-on-surface-variant">Register a new young citizen</p>
+                            </div>
+                        </button>
+                        <button class="flex items-center gap-4 p-4 bg-white hover:bg-emerald-50 text-left rounded-lg shadow-sm border border-transparent hover:border-secondary/20 transition-all group">
+                            <div class="w-12 h-12 rounded-full bg-emerald-50 group-hover:bg-white flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-2xl"
+                                      data-icon="auto_awesome">auto_awesome</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Process Monthly Allowance</p>
+                                <p class="text-[11px] text-on-surface-variant">Automated batch distribution</p>
+                            </div>
+                        </button>
+                        <button class="flex items-center gap-4 p-4 bg-white hover:bg-amber-50 text-left rounded-lg shadow-sm border border-transparent hover:border-tertiary/20 transition-all group">
+                            <div class="w-12 h-12 rounded-full bg-amber-50 group-hover:bg-white flex items-center justify-center text-tertiary">
+                                <span class="material-symbols-outlined text-2xl"
+                                      data-icon="assessment">assessment</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-on-surface">Generate City Report</p>
+                                <p class="text-[11px] text-on-surface-variant">Detailed treasury insights</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <!-- City Growth Indicator -->
+                <div class="bg-gradient-to-br from-slate-900 to-blue-900 p-6 rounded-lg text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"></div>
+                    <h4 class="text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary-fixed" data-icon="insights">insights</span>
+                        City Growth Progress
+                    </h4>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2 text-blue-200">
+                                <span>Savings Goal</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="h-3 w-full bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary-fixed w-[78%] rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider mb-2 text-emerald-200">
+                                <span>Credit Expansion</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="h-3 w-full bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-secondary-fixed w-[92%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-2xl flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-tertiary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                        </div>
+                        <p class="text-[11px] font-medium leading-tight">City is thriving! On track to hit "Platinum
+                            City" status in 12 days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer class="mt-auto p-6 text-center text-[11px] font-bold text-outline-variant uppercase tracking-[0.2em]">
+        © 2023 Game City Banking System • Secure Employee Portal
+    </footer>
+</main>
+<!-- Contextual FAB (Only on Dashboard) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 md:hidden">
+    <span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+</button>
+</body>
+</html>
